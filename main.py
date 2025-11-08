@@ -337,6 +337,7 @@ def admin_qr_site():
 # -------------------------
 if __name__ == "__main__":
     with app.app_context():
-        db.create_all()
+        db.drop_all()   # 🧹 supprime tout
+        db.create_all() # 🔄 recrée tout proprement
     # dev server for tests
     app.run(debug=False, host="0.0.0.0", port=5000)
