@@ -1,0 +1,38 @@
+{% extends "base.html" %}
+{% block title %}Résultats{% endblock %}
+{% block head %}
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+{% endblock %}
+{% block content %}
+<h3 class="mt-4">Résultats</h3>
+<p>Total votes : {{ total_votes }}</p>
+
+<canvas id="resultsChart" style="max-width:800px"></canvas>
+
+<div class="card mt-3">
+  <h4>Classement</h4>
+  <ul class="list-group">
+    {% for item in data %}
+      <li class="list-group-item d-flex justify-content-between align-items-center">
+        {{ item.candidate.first_name }} {{ item.candidate.last_name }}
+        <span>{{ item.votes }} votes ({{ item.pct }}%)</span>
+      </li>
+    {% endfor %}
+  </ul>
+</div>
+
+{% if winner %}
+  <div class="card mt-3 text-center">
+    <h4>Gagnant : {{ winner.first_name }} {{ winner.last_name }}</h4>
+  </div>
+{% endif %}
+{% endblock %}
+
+{% block scripts %}
+<script src="{{ url_for('static', filename='js/charts.js') }}"></script>
+<script>
+  const labels = [{% for item in data %}'{{ item.candidate.first_name }} {{ item.candidate.last_name }}',{% endfor %}];
+  const values = [{% for item in data %}{{ item.votes }},{% endfor %}];
+  initResultsChart('resultsChart', labels, values);
+</script>
+{% endblock %}

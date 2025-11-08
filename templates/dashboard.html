@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% block title %}Tableau de bord{% endblock %}
+{% block content %}
+<h2 class="mt-4">Tableau de bord</h2>
+<div class="mb-3">
+  <a href="{{ url_for('admin_add') }}" class="btn btn-esc">+ Ajouter candidat</a>
+  <a href="{{ url_for('publish') }}" class="btn btn-outline-esc">Publier</a>
+  <a href="{{ url_for('results') }}" class="btn btn-outline-esc">Résultats</a>
+  <a href="{{ url_for('export') }}" class="btn btn-outline-esc">Exporter votes</a>
+</div>
+
+<table class="table table-striped card">
+  <thead><tr><th>Nom</th><th>Filière</th><th>Publié</th><th>Votes</th></tr></thead>
+  <tbody>
+    {% for c in candidates %}
+    <tr>
+      <td>{{ c.first_name }} {{ c.last_name }}</td>
+      <td>{{ c.filiere }}</td>
+      <td>{{ "Oui" if c.published else "Non" }}</td>
+      <td>{{ c.votes|length }}</td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+{% endblock %}

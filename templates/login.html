@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Connexion admin{% endblock %}
+{% block content %}
+<div class="card mt-4" style="max-width:420px;margin:auto">
+  <h4>Connexion administrateur</h4>
+  <form method="post">
+    <label class="label">Nom d'utilisateur</label>
+    <input class="input" name="username" required>
+    <label class="label">Mot de passe</label>
+    <input class="input" name="password" type="password" required>
+    <div class="d-flex gap-2">
+      <button class="btn btn-esc">Se connecter</button>
+      <a href="{{ url_for('register_admin') }}" class="btn btn-outline-esc">Créer admin</a>
+    </div>
+  </form>
+</div>
+{% endblock %}

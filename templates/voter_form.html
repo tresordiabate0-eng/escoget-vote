@@ -1,0 +1,14 @@
+{% extends "base.html" %}
+{% block title %}Voter - {{ candidate.first_name }}{% endblock %}
+{% block content %}
+<div class="card mt-4">
+  <h3>Voter pour {{ candidate.first_name }} {{ candidate.last_name }}</h3>
+  <form method="post">
+    <label class="label">Votre nom</label>
+    <input class="input" name="voter_name" required placeholder="Nom complet">
+    <label class="label">Infos (optionnel)</label>
+    <input class="input" name="voter_meta" placeholder="Classe / Matricule / Commentaire">
+    <button class="btn btn-esc">Confirmer le vote</button>
+  </form>
+</div>
+{% endblock %}

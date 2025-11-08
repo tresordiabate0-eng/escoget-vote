@@ -1,0 +1,15 @@
+{% extends "base.html" %}
+{% block title %}Créer administrateur{% endblock %}
+{% block content %}
+<div class="card mt-4" style="max-width:480px;margin:auto">
+  <h4>Créer un administrateur</h4>
+  <form method="post">
+    <label class="label">Nom d'utilisateur</label>
+    <input class="input" name="username" required>
+    <label class="label">Mot de passe</label>
+    <input class="input" name="password" type="password" required>
+    <button class="btn btn-esc">Créer</button>
+  </form>
+  <p class="text-muted mt-2">⚠️ Après la création, désactive cette page / supprime-la pour la sécurité (en prod).</p>
+</div>
+{% endblock %}

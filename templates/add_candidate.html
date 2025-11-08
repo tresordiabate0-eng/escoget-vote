@@ -1,0 +1,17 @@
+{% extends "base.html" %}
+{% block title %}Ajouter candidat{% endblock %}
+{% block content %}
+<div class="card mt-4" style="max-width:640px">
+  <h4>Ajouter candidat</h4>
+  <form method="post" enctype="multipart/form-data">
+    <label class="label">Prénom</label><input class="input" name="first_name" required>
+    <label class="label">Nom</label><input class="input" name="last_name" required>
+    <label class="label">Filière</label><input class="input" name="filiere">
+    <label class="label">Numéro</label><input class="input" name="number">
+    <label class="label">Âge</label><input class="input" name="age" type="number">
+    <label class="label">Biographie</label><textarea class="input" name="bio"></textarea>
+    <label class="label">Photo</label><input class="input" name="photo" type="file" accept="image/*">
+    <button class="btn btn-esc">Ajouter</button>
+  </form>
+</div>
+{% endblock %}

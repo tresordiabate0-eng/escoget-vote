@@ -1,0 +1,23 @@
+{% extends "base.html" %}
+{% block title %}Liste des candidats{% endblock %}
+{% block content %}
+<h2 class="mt-4">Candidats publiés</h2>
+<div class="candidate-grid mt-3">
+  {% for c in candidates %}
+  <div class="candidate card">
+    <img src="{{ url_for('static', filename='uploads/' ~ (c.photo_filename or '')) }}" alt="photo" onerror="this.src='https://via.placeholder.com/150'">
+    <div>
+      <h4>{{ c.first_name }} {{ c.last_name }}</h4>
+      <p class="mb-1">{{ c.filiere }} • {{ c.number }}</p>
+      <p class="text-muted">{{ c.bio[:110] }}{% if c.bio|length > 110 %}...{% endif %}</p>
+      <div class="mt-2">
+        <a href="{{ url_for('candidate_detail', candidate_id=c.id) }}" class="btn btn-outline-esc btn-sm">Détails</a>
+        <a href="{{ url_for('vote_candidate', candidate_id=c.id) }}" class="btn btn-esc btn-sm ripple">Voter</a>
+      </div>
+    </div>
+  </div>
+  {% else %}
+    <p>Aucun candidat publié pour le moment.</p>
+  {% endfor %}
+</div>
+{% endblock %}

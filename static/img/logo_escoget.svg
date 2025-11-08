@@ -1,0 +1,17 @@
+<!-- static/img/logo_escoget.svg -->
+<svg xmlns="http://www.w3.org/2000/svg" width="160" height="60" viewBox="0 0 320 120" role="img" aria-label="ESCOGET">
+  <defs>
+    <linearGradient id="g" x1="0" x2="1">
+      <stop offset="0" stop-color="#0d6efd"/>
+      <stop offset="1" stop-color="#58a6ff"/>
+    </linearGradient>
+  </defs>
+  <rect rx="12" width="320" height="120" fill="white"/>
+  <g transform="translate(18,18)">
+    <circle cx="36" cy="36" r="28" fill="url(#g)">
+      <animate attributeName="r" values="26;30;26" dur="3s" repeatCount="indefinite" />
+    </circle>
+    <text x="75" y="45" font-family="Segoe UI, Roboto, Arial" font-weight="700" font-size="32" fill="#0b5ed7">ESCOGET</text>
+    <text x="75" y="75" font-family="Segoe UI, Roboto, Arial" font-size="12" fill="#5b9cff">Plateforme de vote</text>
+  </g>
+</svg>
