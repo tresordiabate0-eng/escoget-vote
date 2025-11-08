@@ -337,7 +337,10 @@ def admin_qr_site():
 # -------------------------
 if __name__ == "__main__":
     with app.app_context():
-        db.drop_all()   # 🧹 supprime tout
-        db.create_all() # 🔄 recrée tout proprement
-    # dev server for tests
+        db_path = os.path.join(BASE_DIR, DB_PATH)
+        if os.path.exists(db_path):
+            os.remove(db_path)
+            print("🗑️ Ancienne base supprimée.")
+        db.create_all()
+        print("✅ Nouvelle base recréée avec succès.")
     app.run(debug=False, host="0.0.0.0", port=5000)
